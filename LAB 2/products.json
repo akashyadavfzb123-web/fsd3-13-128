@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "akash",
+    "price": 125,
+    "qty": 12
+  },
+  {
+    "id": 2,
+    "name": "pen",
+    "price": 23,
+    "qty": 56
+  },
+  {
+    "id": 1,
+    "name": "pencil",
+    "price": 12,
+    "qty": 34
+  },
+  {
+    "id": 1,
+    "price": null,
+    "qty": null
+  }
+]
