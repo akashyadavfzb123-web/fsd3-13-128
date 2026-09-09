@@ -68,24 +68,4 @@ the content type and status code can be send back to client by two ways
 
 - res.end
     end("any html content/key)
-- html file 
-read html by 
-
-## send html file to client 
-1. html file 
--read html file using createReadstram 
--pipe it with res object 
-2. htlm content 
-   send any html tags/content by using
-   res.end.('<any html tag>')
-
- ## JSON
-    The server returns data, not HTML content, because the HTML content is written by the frontend developer.The data is usually sent in JSON format.
-    JSON stores data in key-value pairs enclosed in curly braces {}. An array is stored using square brackets [].One pair of curly braces {} represents one object, and the properties inside the object are separated by commas.
-{
-    id:1,
-    name:'Mobile',
-    price:25000,
-    rating:4.5,
-    review : 200
-}
+- html file
