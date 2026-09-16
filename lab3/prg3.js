@@ -48,6 +48,3 @@ server.listen(3000, () => {
 // });
 
 // server.listen(3000, () => console.log("prg3 is running"));
-server.listen(3000, () => {
-    console.log("prg3 is running");
-});
