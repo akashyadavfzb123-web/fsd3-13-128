@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | PulseAI - Reimagining Autonomous Workflows</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f3ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            accent: '#a855f7',
+                            neon: '#06b6d4'
+                        },
+                        dark: {
+                            bg: '#090d16',
+                            card: '#111827',
+                            border: 'rgba(255, 255, 255, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 4s infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%': { opacity: 0.3, transform: 'scale(1)' },
+                            '100%': { opacity: 0.7, transform: 'scale(1.08)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #090d16;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            transition: all 0.3s ease;
+        }
+        .gradient-btn:hover {
+            opacity: 0.92;
+            box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.4);
+            transform: translateY(-1px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="custom-scrollbar">
+
+    <!-- Background Gradient Glows -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 left-1/4 w-[500px] h-[500px] bg-brand-500/20 rounded-full blur-[120px] animate-pulse-glow"></div>
+        <div class="absolute top-20 right-1/4 w-[400px] h-[400px] bg-brand-accent/20 rounded-full blur-[100px] animate-pulse-glow" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-card border-b border-white/5 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl gradient-btn flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <span class="text-xl font-extrabold tracking-tight text-white">Pulse<span class="gradient-text">.AI</span></span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
+                <a href="#mission" class="hover:text-white transition-colors">Mission</a>
+                <a href="#stats" class="hover:text-white transition-colors">Impact</a>
+                <a href="#values" class="hover:text-white transition-colors">Values</a>
+                <a href="#timeline" class="hover:text-white transition-colors">Journey</a>
+                <a href="#team" class="hover:text-white transition-colors">Team</a>
+                <a href="#offices" class="hover:text-white transition-colors">Global Hubs</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#contact" class="text-sm font-semibold text-gray-300 hover:text-white px-4 py-2 transition-colors">Contact Us</a>
+                <a href="#careers" class="gradient-btn px-5 py-2.5 rounded-xl font-semibold text-sm text-white shadow-lg shadow-brand-500/25 flex items-center gap-2">
+                    <span>We're Hiring</span>
+                    <span class="bg-white/20 text-xs px-2 py-0.5 rounded-full">12</span>
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle Mobile Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-b border-white/10 px-6 py-6 flex-col gap-4">
+            <a href="#mission" class="mobile-nav-link text-gray-300 hover:text-white py-2 font-medium">Mission</a>
+            <a href="#stats" class="mobile-nav-link text-gray-300 hover:text-white py-2 font-medium">Impact</a>
+            <a href="#values" class="mobile-nav-link text-gray-300 hover:text-white py-2 font-medium">Values</a>
+            <a href="#timeline" class="mobile-nav-link text-gray-300 hover:text-white py-2 font-medium">Journey</a>
+            <a href="#team" class="mobile-nav-link text-gray-300 hover:text-white py-2 font-medium">Team</a>
+            <a href="#offices" class="mobile-nav-link text-gray-300 hover:text-white py-2 font-medium">Global Hubs</a>
+            <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+                <a href="#careers" class="gradient-btn text-center py-3 rounded-xl font-semibold text-white">Join Our Team (12 open roles)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section & Dynamic Mission -->
+    <section id="mission" class="relative pt-16 pb-20 lg:pt-24 lg:pb-32 overflow-hidden z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-brand-500/30 text-xs sm:text-sm font-medium text-brand-100 mb-8 shadow-inner animate-float">
+                <i class="fa-solid fa-compass text-brand-accent"></i>
+                <span>Our Story & Mission</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight">
+                Empowering Humanity Through <span class="gradient-text">Autonomous Intelligence</span>
+            </h1>
+
+            <p class="mt-6 text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                Founded in 2023, PulseAI was built on a bold premise: intelligent software shouldn't replace humans—it should liberate them from repetitive noise so they can build what matters.
+            </p>
+
+            <!-- Mission Switcher Tabs -->
+            <div class="mt-12 max-w-4xl mx-auto glass-card rounded-2xl p-6 sm:p-8 border border-white/10 text-left">
+                <div class="flex flex-wrap items-center justify-center gap-3 border-b border-white/10 pb-6 mb-6" id="mission-tabs">
+                    <button data-target="m-vision" class="mission-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-brand-500/20 border border-brand-500/50 text-white transition-all">
+                        <i class="fa-solid fa-eye mr-2 text-brand-accent"></i> The Vision
+                    </button>
+                    <button data-target="m-approach" class="mission-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-gray-400 hover:text-white transition-all">
+                        <i class="fa-solid fa-gears mr-2 text-brand-neon"></i> Our Approach
+                    </button>
+                    <button data-target="m-future" class="mission-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-gray-400 hover:text-white transition-all">
+                        <i class="fa-solid fa-rocket mr-2 text-emerald-400"></i> The Future
+                    </button>
+                </div>
+
+                <div id="m-vision" class="mission-content space-y-3">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bullseye text-brand-500"></i> Eliminating Friction in Global Operations
+                    </h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        We envision a world where organizations operate without execution friction. By combining self-healing agent pipelines with real-time orchestration, we turn complex multi-system workflows into effortless automated actions.
+                    </p>
+                </div>
+
+                <div id="m-approach" class="mission-content hidden space-y-3">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-brand-accent"></i> Trust, Speed, and Reliability First
+                    </h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        We prioritize sub-second latency, zero-trust security architecture, and transparent cost attribution. Our visual drag-and-drop workflow canvas lowers the barrier to entry so engineers and domain experts collaborate seamlessly.
+                    </p>
+                </div>
+
+                <div id="m-future" class="mission-content hidden space-y-3">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-microchip text-emerald-400"></i> Next-Gen Autonomous Reasoning
+                    </h3>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        By 2028, PulseAI aims to handle over 10 billion daily autonomous decisions globally. We are building the foundational infrastructure for self-optimizing digital enterprises.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-Time Stats Counter -->
+    <section id="stats" class="py-12 border-y border-white/5 bg-dark-card/40 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <div class="p-6 rounded-2xl glass-card border border-white/5">
+                    <div class="text-3xl sm:text-5xl font-black text-white font-mono counter" data-target="4500">0</div>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-2 font-medium">Enterprise Customers</p>
+                </div>
+
+                <div class="p-6 rounded-2xl glass-card border border-white/5">
+                    <div class="text-3xl sm:text-5xl font-black text-white font-mono counter" data-target="18">0</div>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-2 font-medium">Global Operations Hubs</p>
+                </div>
+
+                <div class="p-6 rounded-2xl glass-card border border-white/5">
+                    <div class="text-3xl sm:text-5xl font-black text-white font-mono counter" data-target="99.99">0</div>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-2 font-medium">% Platform Uptime</p>
+                </div>
+
+                <div class="p-6 rounded-2xl glass-card border border-white/5">
+                    <div class="text-3xl sm:text-5xl font-black gradient-text font-mono counter" data-target="120">0</div>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-2 font-medium">Team Members Worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section id="values" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest gradient-text mb-3">Our DNA</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Core Values That Drive Everything We Build</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Relentless Execution</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We value speed and momentum over perfectionism. We ship fast, gather feedback, and continuously refine our product.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/20 flex items-center justify-center text-brand-accent text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Uncompromised Security</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Customer trust is our highest currency. Privacy, compliance, and end-to-end data encryption are embedded into every line of code.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative group">
+                    <div class="w-12 h-12 rounded-xl bg-brand-neon/20 flex items-center justify-center text-brand-neon text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Radical Transparency</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">From clear product roadmaps to open internal communication, we share metrics, wins, and lessons learned without filter.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">First-Principles Thinking</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">We challenge industry assumptions. If traditional enterprise software feels broken, we reinvent it from scratch.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Customer Obsession</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Every feature feature request, bug fix, and UI polish starts with solving real customer friction points.</p>
+                </div>
+
+                <div class="glass-card glass-card-hover p-8 rounded-2xl relative group">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/20 flex items-center justify-center text-rose-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Distributed Diversity</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Our global remote team spans 20+ countries, bringing diverse perspectives, backgrounds, and creative problem-solving.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Timeline / Milestones -->
+    <section id="timeline" class="py-24 bg-dark-card/40 border-y border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest gradient-text mb-3">Company Evolution</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Our Journey So Far</p>
+            </div>
+
+            <!-- Timeline Selector -->
+            <div class="flex justify-center gap-2 sm:gap-4 mb-12 flex-wrap" id="year-selectors">
+                <button data-year="y2023" class="year-btn active px-5 py-2 rounded-xl text-sm font-semibold glass-card border border-brand-500/50 text-white bg-brand-500/20 transition-all">2023</button>
+                <button data-year="y2024" class="year-btn px-5 py-2 rounded-xl text-sm font-semibold glass-card text-gray-400 hover:text-white transition-all">2024</button>
+                <button data-year="y2025" class="year-btn px-5 py-2 rounded-xl text-sm font-semibold glass-card text-gray-400 hover:text-white transition-all">2025</button>
+                <button data-year="y2026" class="year-btn px-5 py-2 rounded-xl text-sm font-semibold glass-card text-gray-400 hover:text-white transition-all">2026</button>
+            </div>
+
+            <!-- Timeline Dynamic Display -->
+            <div class="max-w-4xl mx-auto glass-card rounded-2xl p-8 border border-white/10" id="timeline-display">
+                <!-- Content updated via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Team Grid & Modals -->
+    <section id="team" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest gradient-text mb-3">Leadership & Minds</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Meet the Visionaries Behind PulseAI</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden border border-white/10 group cursor-pointer open-team-modal" data-member="alex">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80" alt="Alex Rivera" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 text-xs font-semibold px-2.5 py-1 rounded-md bg-brand-500/80 text-white">Co-Founder & CEO</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-500 transition-colors">Alex Rivera</h3>
+                        <p class="text-xs text-gray-400 mt-1">Ex-Google AI Lead | Stanford Alum</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300">Distributed Systems</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300">AI Safety</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden border border-white/10 group cursor-pointer open-team-modal" data-member="marcus">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80" alt="Marcus Chen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 text-xs font-semibold px-2.5 py-1 rounded-md bg-brand-accent/80 text-white">Co-Founder & CTO</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-accent transition-colors">Marcus Chen</h3>
+                        <p class="text-xs text-gray-400 mt-1">Ex-Stripe Infrastructure Principal</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300">Edge Compute</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300">Rust & Go</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden border border-white/10 group cursor-pointer open-team-modal" data-member="sarah">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80" alt="Sarah Jenkins" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 text-xs font-semibold px-2.5 py-1 rounded-md bg-brand-neon/80 text-white">Head of Product</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-neon transition-colors">Sarah Jenkins</h3>
+                        <p class="text-xs text-gray-400 mt-1">Ex-Figma Design Architect</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300">UX Engineering</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300">Workflow Canvas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden border border-white/10 group cursor-pointer open-team-modal" data-member="david">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=80" alt="David Vance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"></div>
+                        <span class="absolute bottom-3 left-4 text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/80 text-white">VP of Research</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">David Vance</h3>
+                        <p class="text-xs text-gray-400 mt-1">PhD Machine Learning, MIT</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300">Agentic Reasoning</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300">Fine-Tuning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Offices / Remote Hubs -->
+    <section id="offices" class="py-24 bg-dark-card/30 border-t border-white/5 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest gradient-text mb-3">Global Footprint</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white">Remote-First, Worldwide Impact</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl border border-white/10">
+                    <div class="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center text-brand-500 text-xl mb-4">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">San Francisco (HQ)</h3>
+                    <p class="text-xs text-gray-400 mt-1">500 Howard Street, Suite 400</p>
+                    <p class="text-xs text-gray-400">San Francisco, CA 94105</p>
+                    <div class="mt-6 pt-4 border-t border-white/5 text-xs text-gray-300 flex items-center justify-between">
+                        <span>Hub Status</span>
+                        <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Open</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-white/10">
+                    <div class="w-10 h-10 rounded-xl bg-brand-accent/20 flex items-center justify-center text-brand-accent text-xl mb-4">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">London, UK</h3>
+                    <p class="text-xs text-gray-400 mt-1">100 Bishopsgate, Floor 18</p>
+                    <p class="text-xs text-gray-400">London EC2N 4AG</p>
+                    <div class="mt-6 pt-4 border-t border-white/5 text-xs text-gray-300 flex items-center justify-between">
+                        <span>Hub Status</span>
+                        <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Open</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl border border-white/10">
+                    <div class="w-10 h-10 rounded-xl bg-brand-neon/20 flex items-center justify-center text-brand-neon text-xl mb-4">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Tokyo, Japan</h3>
+                    <p class="text-xs text-gray-400 mt-1">Roppongi Hills Mori Tower</p>
+                    <p class="text-xs text-gray-400">Minato City, Tokyo 106-6108</p>
+                    <div class="mt-6 pt-4 border-t border-white/5 text-xs text-gray-300 flex items-center justify-between">
+                        <span>Hub Status</span>
+                        <span class="text-emerald-400 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Open</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us / Careers CTA Banner -->
+    <section id="careers" class="py-20 relative z-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto rounded-3xl glass-card p-10 sm:p-16 border border-brand-500/30 text-center relative overflow-hidden shadow-2xl shadow-brand-500/20">
+            <div class="absolute -top-24 -right-24 w-72 h-72 bg-brand-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-brand-accent/20 rounded-full blur-3xl"></div>
+
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                Want to Shape the Future of <br><span class="gradient-text">Autonomous Software?</span>
+            </h2>
+            <p class="mt-4 text-gray-300 text-base max-w-xl mx-auto">
+                We are actively looking for engineers, designers, researchers, and product builders across the globe.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+                <a href="#careers" class="gradient-btn px-8 py-4 rounded-xl font-bold text-white text-base shadow-xl shadow-brand-500/30">
+                    Explore Open Positions
+                </a>
+                <a href="#contact" class="glass-card glass-card-hover px-8 py-4 rounded-xl font-semibold text-gray-200 text-base">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="border-t border-white/5 bg-dark-bg/80 pt-16 pb-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-10 pb-12 border-b border-white/5">
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg gradient-btn flex items-center justify-center text-white font-bold text-lg">
+                            <i class="fa-solid fa-bolt-lightning"></i>
+                        </div>
+                        <span class="text-lg font-extrabold text-white">Pulse<span class="gradient-text">.AI</span></span>
+                    </a>
+                    <p class="mt-4 text-sm text-gray-400 max-w-sm">
+                        Building next-generation autonomous AI workflow orchestration for enterprise teams.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Company</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-400">
+                        <li><a href="#mission" class="hover:text-white transition-colors">Mission</a></li>
+                        <li><a href="#team" class="hover:text-white transition-colors">Leadership</a></li>
+                        <li><a href="#careers" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#offices" class="hover:text-white transition-colors">Locations</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Resources</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">API Docs</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Security Overview</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Press Kit</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Connect</h4>
+                    <ul class="space-y-2.5 text-xs text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Twitter / X</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">GitHub</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Discord Community</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                <p>&copy; 2026 PulseAI Technologies Inc. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                    <a href="#" class="hover:text-gray-300">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Team Member Modal -->
+    <div id="team-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-card max-w-xl w-full rounded-2xl overflow-hidden border border-white/20 relative p-6 sm:p-8">
+            <button id="close-team-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white w-8 h-8 rounded-full bg-dark-bg/80 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="team-modal-body">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.toggle('flex');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                });
+            });
+
+            // 2. Mission Tab Switcher
+            const missionTabs = document.querySelectorAll('.mission-tab-btn');
+            const missionContents = document.querySelectorAll('.mission-content');
+
+            missionTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.getAttribute('data-target');
+
+                    missionTabs.forEach(t => {
+                        t.classList.remove('active', 'bg-brand-500/20', 'border-brand-500/50', 'text-white');
+                        t.classList.add('text-gray-400');
+                    });
+
+                    tab.classList.add('active', 'bg-brand-500/20', 'border-brand-500/50', 'text-white');
+                    tab.classList.remove('text-gray-400');
+
+                    missionContents.forEach(c => c.classList.add('hidden'));
+                    document.getElementById(target).classList.remove('hidden');
+                });
+            });
+
+            // 3. Stats Counter Animation
+            const counters = document.querySelectorAll('.counter');
+            let animated = false;
+
+            function runCounters() {
+                if (animated) return;
+                counters.forEach(counter => {
+                    const target = parseFloat(counter.getAttribute('data-target'));
+                    const isFloat = target % 1 !== 0;
+                    let count = 0;
+                    const increment = target / 60;
+
+                    const update = () => {
+                        count += increment;
+                        if (count < target) {
+                            counter.innerText = isFloat ? count.toFixed(2) : Math.ceil(count);
+                            requestAnimationFrame(update);
+                        } else {
+                            counter.innerText = isFloat ? target.toFixed(2) : target;
+                        }
+                    };
+                    update();
+                });
+                animated = true;
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    runCounters();
+                }
+            }, { threshold: 0.5 });
+
+            observer.observe(document.getElementById('stats'));
+
+            // 4. Timeline Milestones Data & Switcher
+            const timelineData = {
+                y2023: {
+                    title: 'Inception & Seed Funding',
+                    desc: 'PulseAI was founded in San Francisco by Alex Rivera & Marcus Chen. Raised $4.2M in Seed funding to build the initial autonomous AI workflow engine.',
+                    badge: 'Seed Round $4.2M'
+                },
+                y2024: {
+                    title: 'Public Beta Launch',
+                    desc: 'Launched PulseAI v1.0. Surpassed 1,000 active development teams and introduced the visual pipeline drag-and-drop builder.',
+                    badge: '1,000 Teams Onboarded'
+                },
+                y2025: {
+                    title: 'Series A & Global Expansion',
+                    desc: 'Raised $24M Series A led by top venture partners. Expanded physical offices into London and Tokyo while scaling remote hiring.',
+                    badge: 'Series A $24M'
+                },
+                y2026: {
+                    title: 'Autonomous Agent Studio',
+                    desc: 'Released PulseAI v2.4 with self-healing AI agent orchestration, processing over 1.4 million automated tasks daily worldwide.',
+                    badge: 'SOC-2 Certified'
+                }
+            };
+
+            const timelineDisplay = document.getElementById('timeline-display');
+            const yearBtns = document.querySelectorAll('.year-btn');
+
+            function renderTimeline(yearKey) {
+                const item = timelineData[yearKey];
+                timelineDisplay.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+                        <h3 class="text-2xl font-bold text-white">${item.title}</h3>
+                        <span class="text-xs font-mono px-3 py-1 rounded-full bg-brand-500/20 text-brand-100 border border-brand-500/30">${item.badge}</span>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">${item.desc}</p>
+                `;
+            }
+
+            renderTimeline('y2023');
+
+            yearBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const year = btn.getAttribute('data-year');
+                    yearBtns.forEach(b => {
+                        b.classList.remove('active', 'border-brand-500/50', 'text-white', 'bg-brand-500/20');
+                        b.classList.add('text-gray-400');
+                    });
+                    btn.classList.add('active', 'border-brand-500/50', 'text-white', 'bg-brand-500/20');
+                    btn.classList.remove('text-gray-400');
+                    renderTimeline(year);
+                });
+            });
+
+            // 5. Team Modal Details
+            const teamDetails = {
+                alex: {
+                    name: 'Alex Rivera',
+                    role: 'Co-Founder & CEO',
+                    img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=80',
+                    bio: 'Alex led machine learning research at Google for 6 years prior to founding PulseAI. She holds a BS and MS in Computer Science from Stanford University.',
+                    tags: ['AI Research', 'Strategic Growth', 'Distributed Systems']
+                },
+                marcus: {
+                    name: 'Marcus Chen',
+                    role: 'Co-Founder & CTO',
+                    img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80',
+                    bio: 'Former Staff Engineer at Stripe where he led real-time transaction processing networks handling over $100B in annualized global volume.',
+                    tags: ['High-Throughput Systems', 'Rust', 'Edge Architecture']
+                },
+                sarah: {
+                    name: 'Sarah Jenkins',
+                    role: 'Head of Product',
+                    img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&auto=format&fit=crop&q=80',
+                    bio: 'Design architect with over a decade of experience crafting developer tools at Figma and Github. Passionate about human-AI interaction.',
+                    tags: ['Developer UX', 'Product Architecture', 'Workflow Systems']
+                },
+                david: {
+                    name: 'David Vance',
+                    role: 'VP of Research',
+                    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=80',
+                    bio: 'PhD from MIT Computer Science & AI Lab (CSAIL). Published 15+ peer-reviewed papers on autonomous agent alignment and LLM fine-tuning.',
+                    tags: ['Agentic Alignment', 'Fine-Tuning', 'Neural Optimization']
+                }
+            };
+
+            const teamModal = document.getElementById('team-modal');
+            const teamModalBody = document.getElementById('team-modal-body');
+            const closeTeamModal = document.getElementById('close-team-modal');
+
+            document.querySelectorAll('.open-team-modal').forEach(card => {
+                card.addEventListener('click', () => {
+                    const key = card.getAttribute('data-member');
+                    const m = teamDetails[key];
+
+                    teamModalBody.innerHTML = `
+                        <div class="flex items-center gap-4 mb-6">
+                            <img src="${m.img}" alt="${m.name}" class="w-16 h-16 rounded-full object-cover border-2 border-brand-500">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">${m.name}</h3>
+                                <p class="text-xs text-brand-accent font-medium">${m.role}</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 leading-relaxed mb-6">${m.bio}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${m.tags.map(t => `<span class="text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-gray-200">${t}</span>`).join('')}
+                        </div>
+                    `;
+                    teamModal.classList.remove('hidden');
+                });
+            });
+
+            closeTeamModal.addEventListener('click', () => teamModal.classList.add('hidden'));
+            teamModal.addEventListener('click', (e) => {
+                if (e.target === teamModal) teamModal.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
