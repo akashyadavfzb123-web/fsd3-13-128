@@ -1,3 +1,4 @@
+
 import { products } from "./data.js";
 import express from "express";
 
@@ -19,10 +20,11 @@ app.get("/api/products", (req, res) => {
     });
 });
 
-app.get("/api/product", (req, res) => {
+app.get("/api/product/:id", (req, res) => {
+    const { id } = req.params;
+
     res.status(200).json({
-        count: products.length,
-        data: products
+        id: id
     });
 });
 
