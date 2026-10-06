@@ -21,14 +21,13 @@ app.get('/api/products', (req, res) => {
 //query string / request query must be after request parameters or dynamic
 
 app.get('/api/products/query', (req, res) => {
-  const { search, limit , mp } = req.query
+  const { search, limit, mp, minr } = req.query
   console.log('Search: ', search)
   console.log('Limit: ', limit)
 
   let sortedProducts = [...products] //copy all products
   if (mp) {
-    sortedProducts = sortedProducts.filter((item) => item.price <= Number(mp) 
-    )
+    sortedProducts = sortedProducts.filter(item => item.price <= Number(mp))
   }
   if (search) {
     sortedProducts = sortedProducts.filter(item =>
@@ -46,6 +45,26 @@ app.get('/api/products/query', (req, res) => {
     res.status(200).json({ count: sortedProducts.length, data: sortedProducts })
   }
   res.send('Product Search page')
+})
+
+app.get('/api/products/:id/review/:reviewId', (req, res) => {
+  const { id, reviewId } = req.params
+
+  const product = products.find(item => item.id === Number(id))
+
+  if (!product) {
+    return res
+      .status(404)
+      .json({ data: [], msg: 'No product matched your search' })
+  }
+  const review = product.reviews.find(r => r.id === Number(reviewId))
+
+  if (!review) {
+    return res
+      .status(404)
+      .json({ data: [], msg: 'No review matched your search' })
+  }
+  res.status(200).json({ data: review })
 })
 
 app.get('/api/products/:id', (req, res) => {
