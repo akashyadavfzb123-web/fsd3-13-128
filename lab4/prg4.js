@@ -1,56 +1,68 @@
-import { products } from "./data.js";
-import express from "express";
+import express from 'express'
+import { products } from './data.js'
+import { log } from 'node:console'
 
-const app = express();
-
-app.get("/", (req, res) => {
-    res.send(`
+const app = express()
+app.get('/', (req, res) => {
+  res.send(`
         <h1>Home Page</h1>
         <a href="/api/products">Browse Products</a>
-    `);
-});
+        `)
+})
+app.get('/api/products', (req, res) => {
+  const modiProducts = products.map(({ reviews, description, ...rest }) => rest)
+  res.status(200).json({
+    msg: 'Product Found!',
+    count: modiProducts.length,
+    data: modiProducts
+  })
+})
 
-// Get all products
-app.get("/api/products", (req, res) => {
+//query string / request query must be after request parameters or dynamic
 
-    const modiProducts = products.map(
-        ({ reviews, description, ...rest }) => rest
-    );
+app.get('/api/products/query', (req, res) => {
+  const { search, limit , mp } = req.query
+  console.log('Search: ', search)
+  console.log('Limit: ', limit)
 
-    res.status(200).json({
-        count: modiProducts.length,
-        data: modiProducts
-    });
-});
+  let sortedProducts = [...products] //copy all products
+  if (mp) {
+    sortedProducts = sortedProducts.filter((item) => item.price <= Number(mp) 
+    )
+  }
+  if (search) {
+    sortedProducts = sortedProducts.filter(item =>
+      item.name.toLowerCase().startsWith(search)
+    )
+  }
+  if (limit) {
+    sortedProducts = sortedProducts.slice(0, Number(limit))
+  }
+  if (sortedProducts.length < 1) {
+    res
+      .status(200)
+      .json({ data: [], msg: 'No product matched with your search' })
+  } else {
+    res.status(200).json({ count: sortedProducts.length, data: sortedProducts })
+  }
+  res.send('Product Search page')
+})
 
-// Get product by ID
-app.get("/api/products/:id", (req, res) => {
+app.get('/api/products/:id', (req, res) => {
+  const { id } = req.params
+  const p = products.find(item => item.id === Number(id))
+  if (p) {
+    res.status(200).json({ status: true, data: p })
+  } else {
+    res
+      .status(404)
+      .json({ status: false, msg: `product not found with id: ${id}` })
+  }
+})
 
-    const { id } = req.params;
-
-    const p = products.find(
-        (item) => item.id == Number(id)
-    );
-
-    if (p) {
-        res.status(200).json({
-            status: "found",
-            data: p
-        });
-    } 
-    else {
-        res.status(404).json({
-            status: false,
-            msg: `Product not found with id: ${id}`
-        });
-    }
-});
-
-// 404 Route
 app.use((req, res) => {
-    res.status(404).send("Route Not Found");
-});
-
-app.listen(3333, () => {
-    console.log("prg4 is running...");
-});
+  res.status(404).send('Route not found!')
+})
+app.listen(3000, () => {
+  console.log('Program 4 server is running right now..')
+})

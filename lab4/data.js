@@ -27,6 +27,7 @@ export const peope = [
     email: "ananya.chatterjee@example.com",
     bio: "Technical product manager bridging the gap between customer needs and engineering execution.",
   },
+  
   {
     id: 5,
     profile: "https://picsum.photos/300",
